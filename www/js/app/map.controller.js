@@ -48,7 +48,7 @@
       zoom: 12
     };
 
-    uiGmapGoogleMapApi.then(function(maps) {
+    uiGmapGoogleMapApi.then(function(map) {
 
     });
   }

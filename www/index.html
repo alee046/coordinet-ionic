@@ -16,12 +16,13 @@
    <script src="cordova.js"></script>
   <script type="text/javascript" src="js/vendor/lodash.js"></script>
   <script type="text/javascript" src="js/vendor/angular-simple-logger.js"></script>
-  <script type="text/javascript" src="js/vendor/angular-google-maps.js"></script>
+   <script type="text/javascript" src="js/vendor/angular-google-maps.js"></script>
+
   <script type="text/javascript" src="js/vendor/socket.js"></script>
 </head>
 <body ng-app="app">
 
-  <div class="container center" ui-view></div> <!-- div.container -->
+  <div class="container center" ui-view> <ion-nav-view></ion-nav-view></div> <!-- div.container -->
 
   <script src="/js/app.module.js"></script>
   <script src="/js/app.config.js"></script>
@@ -38,7 +39,7 @@
   <ion-nav-back-button>
   </ion-nav-back-button>
 </ion-nav-bar>
- <ion-nav-view></ion-nav-view>
+
   <!-- <script src="/js/app/token.service.js"></script> -->
   <!-- <script src="/js/app/tokenSigning.service.js"></script> -->
   <!-- <script src="/js/app/auth.service.js"></script> -->
