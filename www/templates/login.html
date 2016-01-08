@@ -1,0 +1,14 @@
+<ion-view view-title="Login" name="login-view">
+  <ion-content class="padding">
+      <div class="list list-inset">
+          <label class="item item-input">
+              <input type="text" placeholder="Username" ng-model="vm.users.current.name">
+          </label>
+          <label class="item item-input">
+              <input type="text" placeholder="Status" ng-model="vm.users.current.status">
+          </label>
+      </div>
+      <button class="button button-block button-calm" ng-click="vm.loadUser()">Login</button>
+  </ion-content>
+</ion-view>
+
