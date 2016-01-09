@@ -19,7 +19,7 @@
         status: vm.users.current.status
       });
       $log.log(vm.users);
-      $state.go("map");
+      $state.go("home.index");
     }
   }
 

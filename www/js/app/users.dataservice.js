@@ -14,8 +14,11 @@
         id:     guid(),
         name:   "",
         status: "",
-        lat:    "",
-        lng:    ""
+        position: {
+                        latitude: "",
+                        longitude: ""
+                    }
+
       },
       addUser: addUser
     };
@@ -37,11 +40,7 @@
   };
 
     function guid() {
-      function s4() {
-        return Math.floor((1 + Math.random()) * 0x10000)
-                   .toString(16).substring(1);
-      };
-      return s4() + s4() + '-' + s4() + '-' + s4() + s4();
+      return Math.random().toString(16).substring(2,15);
     }
 
     return users;

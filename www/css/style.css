@@ -12,7 +12,13 @@ body,
   height: 500px;
   width:  100%;
 }
+.pane{
+  background-color:black;
 
+}
+h2{
+  color:white;
+}
 .center {
   text-align: center;
 }
@@ -60,6 +66,7 @@ input[type=button] {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#ededed', GradientType=0);
     /* IE6-9 */
 };
+
 textarea {
   width: 600px;
   height: 120px;

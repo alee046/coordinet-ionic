@@ -12,12 +12,25 @@
           controller:   "LoginController",
           controllerAs: "vm"
         })
-        .state('map', {
-          url: "/map",
-          templateUrl:  "templates/map.html",
-          controller:   "MapController",
-          controllerAs: "vm"
+        .state('home', {
+          url: "/home",
+          templateUrl: 'templates/home.html',
+          abstract:true
+        })
+        .state('home.index', {
+          url: "/1",
+          views:{
+              'map':{
+            templateUrl:  "templates/map.html",
+            controller:   "MapController",
+            controllerAs: "vm"
+              },
+             'chat':{
+              templateUrl: "templates/chat.html"
+             }
+          }
         });
+
 
       $urlRouterProvider.otherwise("/login");
     });

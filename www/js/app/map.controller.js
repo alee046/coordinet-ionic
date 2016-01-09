@@ -15,13 +15,10 @@
     vm.emitLocation = function(){
       geolocateService.getCurrentPosition()
       .then(function(position) {
-        vm.users.current.lat = position.coords.latitude;
-        vm.users.current.lng = position.coords.longitude;
+        vm.users.current.position.latitude = position.coords.latitude;
+        vm.users.current.position.longitude = position.coords.longitude;
 
-        $scope.map.center = {
-          latitude:  vm.users.current.lat,
-          longitude: vm.users.current.lng
-        };
+        $scope.map.center = vm.users.current.position;
 
         $scope.map.zoom = 14;
 
@@ -49,6 +46,7 @@
     };
 
     uiGmapGoogleMapApi.then(function(map) {
+
 
     });
   }

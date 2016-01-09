@@ -4,9 +4,10 @@
           <label class="item item-input">
               <input type="text" placeholder="Username" ng-model="vm.users.current.name">
           </label>
-          <label class="item item-input">
-              <input type="text" placeholder="Status" ng-model="vm.users.current.status">
-          </label>
+       <ion-radio ng-model="vm.users.current.status" ng-value="'A'">Info : <img src="../img/info.png"></ion-radio>
+       <ion-radio ng-model="vm.users.current.status" ng-value="'A'">I need an Uber! : <img src="../img/icon47.png"></ion-radio>
+       <ion-radio ng-model="vm.users.current.status" ng-value="'A'">Warning : <img src="../img/caution.png"></ion-radio>
+       <ion-radio ng-model="vm.users.current.status" ng-value="'A'">Point of Interest : <img src="../img/camera.png"></ion-radio>
       </div>
       <button class="button button-block button-calm" ng-click="vm.loadUser()">Login</button>
   </ion-content>

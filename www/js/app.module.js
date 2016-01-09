@@ -5,7 +5,8 @@
     .module("app", ["ionic",
       "uiGmapgoogle-maps",
       "ui.router",
-      "btford.socket-io"
+      "btford.socket-io",
+      "ionicMultipleViews"
     ])
     .constant("io", window.io)
     .run(function($ionicPlatform) {
