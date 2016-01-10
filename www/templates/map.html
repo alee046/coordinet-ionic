@@ -1,24 +1,16 @@
 <ion-view view-title="map" name="map">
   <ion-content class="padding">
-<h2 class="center">Welcome {{ vm.users.current.name }}</h2>
-<span ng-init="vm.emitLocation()"></span>
-  <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
-<!-- <ui-gmap-marker ng-repeat="users in vm.users.all" coords="m.coords" icon="m.icon" idkey="m.id"></ui-gmap-marker> -->
-    </ui-gmap-google-map>
+  <h2 class="center">Welcome {{ vm.users.current.name }}</h2>
+    <span ng-init="vm.emitLocation()"></span>
+      <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+        <ui-gmap-marker models="markers" coords="'coords'" idkey="markers.id" >
+        </ui-gmap-marker>
+      </ui-gmap-google-map>
 <p>
   There are {{ vm.users.all.length }} other users viewing
   this page with you.
 </p>
 
-<!-- <div id="chatbox">
-  <h1>LocalChat</h1>
-  <ul id="messages"></ul>
-  <hr>
-  <label>Message:</label><textarea id="new-msg"></textarea>
-
-  <input type="button" id="btn-send-msg" value=" Send Message ">
-</div>
- -->
   </ion-content>
-  <multiple-views-support height="50%" />
+  <multiple-views-support height="60%" />
 </ion-view>

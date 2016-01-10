@@ -26,7 +26,9 @@
             controllerAs: "vm"
               },
              'chat':{
-              templateUrl: "templates/chat.html"
+              templateUrl: "templates/chat.html",
+              controller: "ChatController",
+              controllerAs: "vm"
              }
           }
         });

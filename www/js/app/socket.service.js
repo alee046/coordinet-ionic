@@ -8,6 +8,7 @@
   socketService.$inject = ['$log', 'socketFactory', 'io'];
 
   function socketService($log, socketFactory, io) {
+    var id;
     var sendLocationTimeout = null;
     var socket = socketFactory({
       ioSocket: io.connect('https://shrouded-brook-8349.herokuapp.com/')
@@ -21,6 +22,11 @@
       sendLocationTimeout = setTimeout(socket.forward('location'), 1000*10);
 
     });
+       // socket.on('id', function(data){
+       //    $log.log(data);
+       //    id = data
+       //   vm.users.current.id;
+       //  })
 
     return socket;
   }

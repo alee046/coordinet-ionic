@@ -16,7 +16,7 @@
       $log.log("Loading:", {
         id:     vm.users.current.id,
         name:   vm.users.current.name,
-        status: vm.users.current.status
+        icon: vm.users.current.icon
       });
       $log.log(vm.users);
       $state.go("home.index");

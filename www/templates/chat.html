@@ -1,13 +1,23 @@
-<ion-view view-title="chat" name="chat">
-  <ion-content class="padding">
+<ion-view view-title="Coordinet" name="chat" class="light-grey">
 <div id="chatbox">
-  <h1>LocalChat</h1>
-  <ul id="messages"></ul>
-  <hr>
-  <label>Message:</label><textarea id="new-msg"></textarea>
-
-  <input type="button" id="btn-send-msg" value=" Send Message ">
-</div>
-</ion-content>
-  <multiple-views-support height="50%" />
+  <div ng-show="chatCtrl.connected">
+    <div class="log pad2">"Welcome to Socket.IO Chat – ";</div>
+      </div>
+        <ul id="messages">
+          <li ng-class="{'message':message.style,'log':!message.style}"  ng-repeat="message in chatCtrl.messages" >
+            <span ng-show="message.style" ng-style="{color:message.color}" >{{message.username}} : </span >{{message.content}}
+          </li>
+        </ul>
+      </div>
+        <div class="list light-grey bottommsg">
+          <div class="item item-input-inset light-grey">
+            <label  class="item-input-wrapper line-light-grey nopadtop">
+              <input class="line-light-grey" ng-change="chatCtrl.updateTyping()" type="text"  placeholder="Message" ng-enter="chatCtrl.sendMessage()" ng-model="chatCtrl.message">
+            </label>
+              <div class="divsend">
+                  <button class="button button-clear ion-android-send iconsend" ng-click="chatCtrl.sendMessage()"></button>
+              </div>
+            </div>
+        </div>
+  <multiple-views-support height="40%" />
 </ion-view>

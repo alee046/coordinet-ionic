@@ -13,7 +13,7 @@
       current: {
         id:     guid(),
         name:   "",
-        status: "",
+        icon:   "",
         position: {
                         latitude: "",
                         longitude: ""
@@ -34,8 +34,8 @@
         if (notInAll){
       users.all.push(data);
       }
-      $log.log('all the users are', users.all);
-      $log.log('the current user is', users.current);
+      // $log.log('all the users are', users.all);
+      // $log.log('the current user is', users.current);
     };
   };
 

@@ -17,7 +17,7 @@
   <script type="text/javascript" src="js/vendor/lodash.js"></script>
   <script type="text/javascript" src="js/vendor/angular-simple-logger.js"></script>
    <script type="text/javascript" src="js/vendor/angular-google-maps.js"></script>
-   <script src="js/app/ionic.multiple.views.directive.js"></script>
+   <script src="js/directives/ionic.multiple.views.directive.js"></script>
   <script type="text/javascript" src="js/vendor/socket.js"></script>
 </head>
 <body ng-app="app">
@@ -38,11 +38,13 @@
 
   <script src="/js/app/map.controller.js"></script>
   <script src="/js/app/login.controller.js"></script>
-  <ion-nav-bar class="bar-stable">
-<ion-nav-bar class="bar-stable">
-  <ion-nav-back-button>
-  </ion-nav-back-button>
-</ion-nav-bar>
+   <script src="/js/app/chat.controller.js"></script>
+         <ion-nav-bar class="bar-dark">
+          <ion-nav-buttons side="right">
+            <button class="button button-clear icon ion-android-more-vertical right8" ng-click="chatCtrl.openPopover($event)">
+            </button>
+          </ion-nav-buttons>
+         </ion-nav-bar>
 
   <!-- <script src="/js/app/token.service.js"></script> -->
   <!-- <script src="/js/app/tokenSigning.service.js"></script> -->

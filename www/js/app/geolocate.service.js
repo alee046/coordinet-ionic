@@ -10,11 +10,11 @@
   function geolocateService($log, $window, $q) {
     var geolocate = {
       getCurrentPosition: function() {
-        $log.log("Beginning geolocation…");
+        // $log.log("Beginning geolocation…");
 
         return $q(function(resolve, reject) {
           $window.navigator.geolocation.getCurrentPosition(function(position) {
-            $log.log("Position acquired:", position);
+            // $log.log("Position acquired:", position);
             resolve(position);
           });
         });
