@@ -17,7 +17,7 @@
     socket.on('connect', function () {
       $log.log("We are connected!");
 
-      socket.forward('location');
+      // socket.forward('location');
       clearTimeout(sendLocationTimeout);
       sendLocationTimeout = setTimeout(socket.forward('location'), 1000*10);
 
