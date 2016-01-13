@@ -1,18 +1,47 @@
 (function() {
-  "use strict";
+
 
   angular
     .module("app")
     .controller("MapController", MapController);
 
-  MapController.$inject = ["$log", "$scope", "uiGmapGoogleMapApi", "usersDataService", "geolocateService", "socketService"];
+  MapController.$inject = ["$log", "$scope", "uiGmapGoogleMapApi", "usersDataService", "geolocateService", "socketService", "$timeout"];
 
-  function MapController($log, $scope, uiGmapGoogleMapApi, usersDataService, geolocateService, socketService) {
+  function MapController($log, $scope, uiGmapGoogleMapApi, usersDataService, geolocateService, socketService, $timeout) {
     var vm = this;
     var sendLocationTimeout;
     vm.users = usersDataService;
 
-var markers=[];
+    vm.markers = [
+            {
+            id: 0,
+            coords: {
+      latitude:  34.012938,
+        longitude: -118.495122
+            },
+            icon: '../img/ga.png',
+            message: "Meet And Hire today from 5:30-9:00!"
+        },
+        {
+            id: 1,
+            coords: {
+                   latitude:  34.06,
+        longitude: -118.3
+            },
+            icon: '../img/Dozen_Donuts.png',
+            message: "Special on a dozen of Cronuts today!"
+        },
+        {
+            id: 2,
+            coords: {
+              latitude:  34.06,
+        longitude: -118.3
+            },
+            icon: '../img/dollar.png',
+            message: "Need help to move some stuff ? $50/ hr"
+        }
+    ];
+// var markers=[];
 
     vm.emitLocation = function(){
 
@@ -22,8 +51,8 @@ var markers=[];
         vm.users.current.position.latitude = position.coords.latitude;
         vm.users.current.position.longitude = position.coords.longitude;
         $scope.map.center = vm.users.current.position;
-        $scope.map.zoom = 12;
-        $scope.map.markers = [];
+        // $scope.map.zoom = 12;
+
         socketService.emit('location', vm.users.current);
 
         $scope.$on("socket:location", function(evt, data) {
@@ -58,23 +87,30 @@ var markers=[];
         // });
 
           angular.forEach(vm.users.all, function(user){
-                     $scope.map.markers.push({
-                                id: user.name,
+            var inArr= false;
+            for(var i=0;i<vm.markers.length;i++){
+              if(vm.markers[i].id == user.id){
+                inArr=true;
+              }
+            }
+            if (inArr == false){
+                     vm.markers.push({
+                                id: user.id,
                                 coords: user.position,
-                                icon: user.icon
-            })
+                                icon: user.icon,
+                                message: user.message
+
+                      });
+                   }
           });
 
-          $scope.map.markers.push({
-                                id: vm.users.current.name,
-                                coords: vm.users.current.position,
-                                icon: vm.users.current.icon
-          })
 
       }).then(function(data){
         clearTimeout(sendLocationTimeout);
-        sendLocationTimeout = setTimeout(vm.emitLocation, 1000*10);
-      $log.log($scope.map.markers);
+        sendLocationTimeout = setTimeout(vm.emitLocation, 1000*15);
+        // $timeout(vm.emitLocation, 1000*10);
+
+      $log.log('the markers are', vm.markers);
       $log.log('all the users are', vm.users.all);
       $log.log('the current users is', vm.users.current);
 
@@ -82,17 +118,99 @@ var markers=[];
         //   // $lo
       });
     }
+    vm.markers.push({
+                            id: vm.users.current.id,
+                            coords: vm.users.current.position,
+                            icon: vm.users.current.icon,
+                            message: vm.users.current.message
+      });
+
+    $scope.MapOptions = {
+        minZoom : 3,
+        zoomControl : false,
+        draggable : true,
+        navigationControl : false,
+        mapTypeControl : false,
+        scaleControl : false,
+        streetViewControl : false,
+        disableDoubleClickZoom : false,
+        keyboardShortcuts : true,
+        styles : [{
+          featureType : "poi",
+          elementType : "labels",
+          stylers : [{
+            visibility : "off"
+          }]
+        }, {
+          featureType : "transit",
+          elementType : "all",
+          stylers : [{
+            visibility : "off"
+          }]
+        }],
+    };
+
+    //     $scope.markers = [
+    //     {
+    //         id: 0,
+    //         coords: {
+    //             latitude: 37.7749295,
+    //             longitude: -122.4194155
+    //         },
+    //         data: 'restaurant'
+    //     },
+    //     {
+    //         id: 1,
+    //         coords: {
+    //             latitude: 37.79,
+    //             longitude: -122.42
+    //         },
+    //         data: 'house'
+    //     },
+    //     {
+    //         id: 2,
+    //         coords: {
+    //             latitude: 37.77,
+    //             longitude: -122.41
+    //         },
+    //         data: 'hotel'
+    //     }
+    // ];
+
+    $log.log('the fiddle markers are ', $scope.markers);
 
     $scope.map = {
       center: {
         latitude:  34.06,
         longitude: -118.3
       },
-      zoom: 10
+      zoom: 10,
+      pan:1,
+      markers: vm.markers,
+          markersEvents: {
+              click: function(marker, eventName, model, arguments) {
+                  $scope.map.window.model = model;
+                  $scope.map.window.show = true;
+              }
+          },
+          window: {
+              marker: {},
+              show: false,
+              closeClick: function() {
+                  this.show = false;
+              },
+              options: {} // define when map is ready
+          },
+
+      options: $scope.mapOptions,
+      control:{}
+
     };
 
     // $log.log($scope.map.markers);
     uiGmapGoogleMapApi.then(function(map) {
+
+$scope.map.window.options.pixelOffset = new google.maps.Size(0, -35, 'px', 'px');
 
 
 

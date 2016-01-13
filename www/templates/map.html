@@ -1,15 +1,16 @@
 <ion-view view-title="map" name="map">
   <ion-content class="padding">
-  <h2 class="center">Welcome {{ vm.users.current.name }}</h2>
+  <h2 class="center">Welcome, {{ vm.users.current.name }}</h2>
     <span ng-init="vm.emitLocation()"></span>
       <ui-gmap-google-map center='map.center' zoom='map.zoom'>
-<!--         <ui-gmap-markers models="map.markers" coords="'map.markers.position'" idkey="map.markers.id" >
-        </ui-gmap-markers> -->
+       <ui-gmap-markers models="vm.markers" doCluster="false" icon="'icon'" idkey="markers.id" coords="'coords'" click="'onClick'" events="markers.events" >
+            <ui-gmap-windows show="show">
+                <div ng-non-bindable>{{ message }}</div>
+            </ui-gmap-windows>
+       </ui-gmap-markers>
       </ui-gmap-google-map>
-<p>
-  There are {{ vm.users.all.length }} other users viewing
-  this page with you.
-</p>
+
+
 
   </ion-content>
   <multiple-views-support height="60%" />

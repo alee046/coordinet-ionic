@@ -15,7 +15,6 @@
         .state('home', {
           url: "/home",
           templateUrl: 'templates/home.html',
-          abstract:true
         })
         .state('home.index', {
           url: "/1",

@@ -6,7 +6,8 @@
       "uiGmapgoogle-maps",
       "ui.router",
       "btford.socket-io",
-      "ionicMultipleViews"
+      "ionicMultipleViews",
+      'ngAnimate'
     ])
     .constant("io", window.io)
     .run(function($ionicPlatform) {

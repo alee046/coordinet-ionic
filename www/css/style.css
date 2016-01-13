@@ -8,15 +8,19 @@ body,
   min-height: 100%;
   background-color:grey;
 }
-
+h3{
+  font-family: 'Questrial', sans-serif;
+}
 .angular-google-map-container {
-
+  margin:auto;
   height: 500px;
-  width:  100%;
+  width:  95%;
+}
+p{
+  font-size:16px;
 }
 .pane{
-  background-color:grey;
-
+   background-image: url("http://www.narrowbandimaging.com/images/img6303_first_flat_neg35c.jpg");
 }
 .status{
   font-size:22px;
@@ -29,7 +33,11 @@ img{
   width:30px;
 }
 h2{
+  font-family: 'Pacifico', cursive;
   color:white;
+}
+.number{
+  color:red;
 }
 .center {
   text-align: center;
@@ -50,10 +58,12 @@ h2{
   background: #d9d9d9;
 }
 #messages {
-    height: 100px;
- background: #d9d9d9;;
+    height: 40px;
     overflow: auto;
     text-align:left;
+    margin-left: 20px;
+    font-size: 24px;
+    font-family: 'EB Garamond', serif;
 }
 .btn-send-msg {
   padding: 10px;
@@ -94,3 +104,31 @@ textarea {
     width: 200px;
     height: 150px;
 };
+.animate-enter,
+.animate-leave
+{
+    -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    text-overflow: clip;
+    white-space:nowrap;
+}
+
+.animate-leave.animate-leave-active,
+.animate-enter {
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+}
+
+.animate-enter.animate-enter-active,
+.animate-leave {
+    opacity: 1;
+    width: 150px;
+    height: 30px;
+}

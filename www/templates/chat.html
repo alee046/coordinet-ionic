@@ -1,13 +1,20 @@
 <ion-view view-title="Coordinet" name="chat" class="light-grey">
 <div id="chatbox">
   <div ng-show="chatCtrl.connected">
-    <div class="log pad2">"Welcome to Socket.IO Chat – ";</div>
+    <div class="log pad2"></div>
       </div>
-        <ul id="messages">
-          <li ng-class="{'message':message.style,'log':!message.style}"  ng-repeat="message in chatCtrl.messages" >
-            <span ng-show="message.style" ng-style="{color:message.color}" >{{message.username}} : </span >{{message.content}}
-          </li>
-        </ul>
+ <div id="information">
+ <p><b>
+  There are <span class= "number"> {{ vm.users.all.length }} </span>online right now.
+</b></p>
+<h3 class="animated zoomIn"><strong>Whats going on around you?</strong></h3>
+<div id="messages"  class="animated slideInRight" ng-repeat="user in vm.users.seed track by user.id">
+    {{user.name}} says: "{{user.message}}""
+</div>
+<div id="messages"  class="animated slideInRight" ng-repeat="user in vm.users.all track by user.id">
+    {{user.name}} says: "{{user.message}}"
+</div>
+ </div>
       </div>
         <div class="list light-grey bottommsg">
           <div class="item item-input-inset light-grey">
