@@ -4,7 +4,7 @@
 Coordinet is an application written in the Ionic Platform that utilises 
 geolocation to send user location data along with a short message through Sockets.io. Try it out,
 Coordinet with the people around you!
- 
+![Coordinet](/www/img/coordinet.png) 
 ### How to use
 1. Pick a Username
 2. Write out a smalle message. (This will be on an info window attached to your marker)
