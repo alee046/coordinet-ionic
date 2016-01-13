@@ -43,17 +43,17 @@
     },
     {
       id: 3,
-      name: "Bruh",
+      name: "Santa Monica Pier",
       icon: '../img/info.png',
       position: {
         latitude:  34.06,
         longitude: -118.3
       },
-      message: "broo"
+      message: "Special Performance on the pier @ 6PM"
     },
     {
       id: 4,
-      name: "Bro",
+      name: "James",
       icon: '../img/info.png',
       position: {
         latitude:  34.06,

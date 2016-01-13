@@ -31,10 +31,20 @@ p{
 img{
   height:30px;
   width:30px;
+  position:right;
 }
 h2{
   font-family: 'Pacifico', cursive;
   color:white;
+}
+h1{
+  font-family: 'Pacifico', cursive;
+  color:white;
+}
+h4{
+      font-family: 'Questrial', sans-serif;
+  color:white;
+  font-size:20px;
 }
 .number{
   color:red;
@@ -57,12 +67,22 @@ h2{
   text-align:center;
   background: #d9d9d9;
 }
+.list.list-inset.light.top180 {
+    width: 75%;
+    margin: auto;
+    border-radius: 10px;
+}
+button.button.button-block.button-grey{
+    width: 75%;
+    margin: auto;
+    border-radius: 10px;
+}
 #messages {
-    height: 40px;
-    overflow: auto;
+    height: 20px;
+    overflow: scroll;
     text-align:left;
     margin-left: 20px;
-    font-size: 24px;
+    font-size: 18px;
     font-family: 'EB Garamond', serif;
 }
 .btn-send-msg {

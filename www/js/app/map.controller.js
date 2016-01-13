@@ -25,8 +25,8 @@
         {
             id: 1,
             coords: {
-                   latitude:  34.06,
-        longitude: -118.3
+                   latitude:  34.025799,
+        longitude:  -118.483329
             },
             icon: '../img/Dozen_Donuts.png',
             message: "Special on a dozen of Cronuts today!"
@@ -34,11 +34,20 @@
         {
             id: 2,
             coords: {
-              latitude:  34.06,
-        longitude: -118.3
+              latitude:  34.012900,
+        longitude: -118.494122
             },
             icon: '../img/dollar.png',
             message: "Need help to move some stuff ? $50/ hr"
+        },
+                    {
+            id: 3,
+            coords: {
+      latitude:  34.008614,
+        longitude:  -118.498071
+            },
+            icon: '../img/question.png',
+            message: "Special Performance on the pier @ 6PM"
         }
     ];
 // var markers=[];
