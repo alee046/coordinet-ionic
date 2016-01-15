@@ -1,4 +1,8 @@
 #Coordinet
+
+***
+Must use ionic cli command ionic serve. 
+![img](https://i.imgur.com/qxJxhum.png)
 ### A Location-sharing chat app for communicating with people near by.
 
 Coordinet is an application written in the Ionic Platform that utilises 
